@@ -1,0 +1,29 @@
+{
+  "name": "@sdellysse/subclass",
+  "version": "0.0.1",
+  "description": "Simple Prototype Inheritance function",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/.bin/nodeunit test/index.js",
+    "dist": "node ./node_modules/.bin/browserify src/subclass.js --s subclass -o dist/subclass.js && node ./node_modules/.bin/uglifyjs dist/subclass.js --compress --mangle -o dist/subclass.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shawndellysse/subclass.git"
+  },
+  "keywords": [
+    "prototype",
+    "inheritance"
+  ],
+  "author": "Shawn Dellysse",
+  "license": "BSD2",
+  "bugs": {
+    "url": "https://github.com/shawndellysse/subclass/issues"
+  },
+  "homepage": "https://github.com/shawndellysse/subclass",
+  "devDependencies": {
+    "browserify": "^10.1.0",
+    "nodeunit": "^0.9.1",
+    "uglify-js": "^2.4.21"
+  }
+}
