@@ -4,6 +4,12 @@ var subclass;
 subclass = function (Parent, Child) {
     var Surrogate, surrogateInstance;
 
+    if (typeof Child === "undefined") {
+        Child = function () {
+            return Parent.apply(this, arguments);
+        };
+    }
+
     Surrogate = function () {};
     Surrogate.prototype = Parent.prototype;
 

@@ -5,7 +5,7 @@ subclass = require("../src/subclass");
 
 
 exports.testSubclass = function (test) {
-    var Parent, Child;
+    var Parent, Child, ch;
 
     Parent = function (x) {
         this.x = x;
@@ -24,10 +24,20 @@ exports.testSubclass = function (test) {
     subclass(Parent, Child);
     test.doesNotThrow(function () { (new Child(42)).get(); });
 
-    var ch = new Child(42);
+    ch = new Child(42);
     test.strictEqual(ch.constructor, Child);
 
     test.notStrictEqual(ch.constructor, Parent);
+
+
+    Parent = function (value) {
+        this.value = value;
+    };
+    Child = subclass(Parent);
+
+    ch = new Child(42);
+    test.strictEqual(ch.value, 42);
+
 
     test.done();
 };
